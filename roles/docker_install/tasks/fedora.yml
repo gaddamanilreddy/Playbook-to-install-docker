@@ -1,0 +1,15 @@
+
+- name: Add Docker CE repository
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+    force: yes
+    owner: root
+    group: root
+    mode: 0644
+
+-name: - name: Install Docker CE
+  yum:
+    name: docker-ce
+    state: present
+    update_cache: yes

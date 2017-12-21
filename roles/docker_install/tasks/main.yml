@@ -1,0 +1,10 @@
+- name: Install docker-ce is RedHat or centos
+  include: fedora.yml
+  when: ansible_os_family == 'RedHat'
+
+- name: Install docker-ce is ubuntu
+  include: deb.yml
+  when: ansible_distribution == 'Ubuntu'
+
+notify:
+   - Start Docker service
